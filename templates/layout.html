@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Time Thing</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- local style -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Style.css') }}">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='PierrepontOwl.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='PierrepontOwl.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='PierrepontOwl.png') }}">
+    <link rel="manifest" href="/site.webmanifest">
+
+  </head>
+  <body>
+    <!-- menu -->
+    <a href="#">By Day</a> | <a href="#">By Week</a> | <a href="#">About</a>
+    <!-- container -->
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <h1>Harry Potter School of Dark Magic LLC</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <h2> Julio Escoban </h2>
+        </div>
+        <div class="col-xs-6">
+          <h2> 1988 - 1989 </h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 text-center warning">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {%if messages %}
+              {% for category, message in messages %}
+              <div class="alert alert-{{category}}">
+                {{ message }} <!-- actual message -->
+              </div>
+              {%endfor%}
+            {%endif%}
+          {%endwith%}
+        </div>
+      </div>
+      <!-- Whiteboard -->
+       {% block content %}
+       {% endblock %}
+    </div>
+  </body>
+</html>

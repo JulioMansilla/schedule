@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="row text-center">
+    <div class="col-xs-2 col-xs-offset-1">
+      <h2>Time</h2>
+    </div>
+    <div class="col-xs-9">
+      <h2> {{ time.day }} </h2>
+    </div>
+  </div>
+
+    {% for post in posts[time.day] %}
+    <div class="row text-center">
+      <div class="col-xs-2 col-xs-offset-1">
+        <h2> {{ post.time }} </h2>
+      </div>
+      <div class="col-xs-9 {{post.css}}">
+        <h3>{{ post.className }}</h3>
+        <h3>{{ post.teacher }}</h3>
+        <h3>{{ post.room }}</h3>
+      </div>
+
+    </div>
+  {% endfor %}
+{% endblock content %}
