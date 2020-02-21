@@ -6,7 +6,7 @@ from forms import LoginForm, RegistrationForm
 
 app = Flask(__name__)
 app.config['SECRET_KEY']='f0902237d035d764f7d9cd235d64d860'
-
+#https://github.com/JulioMansilla/schedule
 
 
 @app.route('/')
