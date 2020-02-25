@@ -25,11 +25,18 @@ def register():
         return redirect(url_for('timeDisplay'))
     return render_template('register.html', title='Register', form=form)
 
-@app.route("/login")
+
+@app.route("/login", methods=['GET', 'POST'])
 def login():
-    #create an instace of our class like we do in java
     form = LoginForm()
-    return render_template('login.html', title='login', form=form)
+    if form.validate_on_submit():
+        if form.email.data == 'bob@bob.com' and form.password.data == 'bob123':
+            flash('You have been logged in!', 'success')
+            return redirect(url_for('home'))
+        else:
+            flash('Login Unsuccessful. Please check username and password', 'danger')
+    return render_template('login.html', title='Login', form=form)
+
 
 if __name__ == '__name__':
     app.run(debug=True)
